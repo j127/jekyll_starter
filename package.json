@@ -1,0 +1,25 @@
+{
+    "name": "jekyll_starter",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "start": "concurrently 'bundle exec jekyll serve'",
+        "clean": "rimraf dist/* _site/*",
+        "build": "yarn clean && bundle exec jekyll build",
+        "new": "ruby generator.rb",
+        "deploy": "yarn build && wrangler pages deploy _site && sleep 5 && yarn test:post_deploy",
+        "test:post_deploy": "ts-node ./scripts/post-deploy.ts"
+    },
+    "devDependencies": {
+        "@types/node": "^20.4.4",
+        "concurrently": "^8.2.0",
+        "parcel": "^2.9.3",
+        "rimraf": "^5.0.1",
+        "typescript": "^5.1.6",
+        "yaml": "^2.3.1"
+    },
+    "author": "Josh Cohen",
+    "dependencies": {
+        "ts-node": "^10.9.1"
+    }
+}
