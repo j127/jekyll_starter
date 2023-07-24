@@ -39,9 +39,8 @@ function loadConfig(): JekyllConfig {
 /**
  * Extracts the domain name from a URL.
  */
-function extractDomain(url: string) {
-    const u = new URL(url);
-    return u.hostname;
+function extractDomain(url: string): string {
+    return new URL(url).hostname;
 }
 
 /**
